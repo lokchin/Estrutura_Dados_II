@@ -103,29 +103,55 @@ NO* removeDado(NO *raiz, int valor) {
 
 int main(void) {
     NO *raiz = criaArvBin();
-    int N = 8, dados[8] = {50, 100, 30, 20, 40, 45, 35, 37};  //Números para serem inseridos
     
-    for (int i = 0; i < N; i++) {
-        raiz = insereDado(raiz, dados[i]);
-    }
-    
-    int valorBusca;
+    int op = -1;
+    int num;
     
     while(1) {
         printf("-----------------------------\n");
-        printf("-------Buscar na árvore------\n");
+        printf("-------Arvore binaria------\n");
         printf("-----------------------------\n\n");
         
-        printf("Digite o que esta buscando: ");
-        scanf("%i", &valorBusca);
-        printf("\n");
         
-        NO *resultado = encontraDado(raiz, valorBusca);
+        printf("Digite um número: "); scanf("%i", &num);
         
-        if (resultado) {
-            printf("Valor %d encontrado na árvore.\n\n\n", valorBusca);
-        } else {
-            printf("Valor %d não encontrado na árvore.\n\n\n", valorBusca);
+        printf("Digite o que quer fazer: \n");
+        printf("1 - Inserir na arvore \n");
+        printf("2 - Buscar na arvore \n");
+        printf("3 - Excluir na arvore \n");
+        printf("4 - Sair \n");
+        printf("-----------------------------\n");
+        scanf("%i", &op);
+        
+
+        switch(op){
+            case 1:
+                raiz = insereDado(raiz, num);
+                if (raiz)
+                    printf("%i foi inserido. \n", num);
+                else
+                    printf("Deu BO \n");
+                break;
+            case 2:
+                NO* encontrado = encontraDado(raiz, num);
+                if (encontrado)
+                    printf("%i foi encontrado. \n", num);
+                else
+                    printf("Deu BO, não existe \n");
+                break;
+            case 3:
+                NO* removido = removeDado(raiz, num);
+                if (removido != raiz) {
+                    removido = raiz;
+                    printf("%i foi removido. \n", num);
+                }
+                else {
+                    printf("Não tem como excluir o que não existe. \n");
+                }
+                break;
+            case 4:
+                printf("Saindo...\n");
+                return 0;
         }
     }
     
