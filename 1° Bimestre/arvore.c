@@ -29,6 +29,12 @@ NO* removeDado(NO *raiz, int valor);        /* Faz a lógica para percorrer a á
                                              posição certa, após isso tudo, ele confere se não há
                                              os filhos da raiz, se não tiver, libera a raiz. */
 
+NO* preOrdem(NO *raiz);
+
+NO* emOrdem(NO *raiz);
+
+NO* posOrdem(NO *raiz);
+
 NO* criaArvBin() {
     NO *raiz = (NO*) malloc(sizeof(NO));
   if (raiz)
@@ -99,6 +105,30 @@ NO* removeDado(NO *raiz, int valor) {
         raiz->dir = removeDado(raiz->dir, temp->dado);
     }
     return raiz;
+}
+
+NO* preOrdem(NO *raiz) {
+    if (!raiz)
+        return;
+    printf("%i\t", raiz->dado);
+    preOrdem(raiz->esq);
+    preOrdem(raiz->dir);
+}
+
+NO* emOrdem(NO *raiz) {
+    if (!raiz)
+        return;
+    emOrdem(raiz->esq);
+    printf("%i\t", raiz->dado);
+    emOrdem(raiz->dir);
+}
+
+NO* posOrdem(NO *raiz) {
+    if (!raiz)
+        return;
+    posOrdem(raiz->esq);
+    posOrdem(raiz->dir);
+    printf("%i\t", raiz->dado)
 }
 
 int main(void) {
