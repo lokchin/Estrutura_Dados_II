@@ -128,7 +128,7 @@ NO* posOrdem(NO *raiz) {
         return;
     posOrdem(raiz->esq);
     posOrdem(raiz->dir);
-    printf("%i\t", raiz->dado)
+    printf("%i\t", raiz->dado);
 }
 
 int main(void) {
@@ -149,7 +149,8 @@ int main(void) {
         printf("1 - Inserir na arvore \n");
         printf("2 - Buscar na arvore \n");
         printf("3 - Excluir na arvore \n");
-        printf("4 - Sair \n");
+        printf("4 - Nós em ordem \n");
+        printf("5 - Sair \n");
         printf("-----------------------------\n");
         scanf("%i", &op);
         
@@ -180,6 +181,14 @@ int main(void) {
                 }
                 break;
             case 4:
+                printf("Nós da árvore - Pré ordem: \n");
+                preOrdem(raiz);
+                printf("Nós da árvore - Em ordem: \n");
+                emOrdem(raiz);
+                printf("Nós da árvore - Pós ordem: \n");
+                posOrdem(raiz);
+                break;
+            case 5:
                 printf("Saindo...\n");
                 return 0;
         }
