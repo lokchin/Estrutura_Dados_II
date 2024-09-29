@@ -15,6 +15,8 @@ typedef struct NO
 NO* cria_no(int valor); // Função que cria um novo nó
 void leftleft(NO **raiz, NO *x); //Rotação simples a esquerda
 void rightright(NO **raiz, NO *x); // ROtação simples a direita
+void desviolar(NO **raiz, NO *z); // Corrige os desvios de regra
+void inserir(NO **raiz, int valor); // Insere na árvore
 
 NO* cria_no(int valor)
 {
